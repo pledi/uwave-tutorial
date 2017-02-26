@@ -1,0 +1,29 @@
+{
+  "name": "sideshow",
+  "version": "0.4.3",
+  "description": "Sideshow is a powerful javascript library which aims to reduce your user's learning curve by providing a way to create step-by-step interactive helps.",
+  "main": " ",
+  "scripts": {
+    "test": " "
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/fortesinformatica/Sideshow.git"
+  },
+  "keywords": [
+    "interactive",
+    "help",
+    "tour",
+    "tutorial",
+    "library",
+    "step-by-step"
+  ],
+  "author": "Fortes Informática",
+  "license": "Apache 2",
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^1.5.4"
+  }
+}
