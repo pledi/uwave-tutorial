@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 gulp.task('default', ['js', 'css']);
 
 gulp.task('js', function(){
-    return gulp.src(['./distr/dependencies/jquery.min.js', './distr/dependencies/jazz.min.js', './distr/dependencies/pagedown.min.js','./distr/sideshow.js','./tutorial/scripts/sideshow.config.js'])
+    return gulp.src(['./distr/dependencies/jquery.min.js', './distr/dependencies/jazz.min.js', './distr/dependencies/pagedown.min.js','./distr/sideshow.js','./tutorial/scripts/sideshow.config.js','.tutorial/scripts/tutorial/introducing_sideshow.js'])
     .pipe(concat('build.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./'));
