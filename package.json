@@ -1,7 +1,7 @@
 {
-  "name": "sideshow",
-  "version": "0.4.3",
-  "description": "Sideshow is a powerful javascript library which aims to reduce your user's learning curve by providing a way to create step-by-step interactive helps.",
+  "name": "uwave-tutorial",
+  "version": "0.0.1",
+  "description": "A tutorial for uwave, based on Sideshow, which is a powerful javascript library which aims to reduce your user's learning curve by providing a way to create step-by-step interactive helps.",
   "main": " ",
   "scripts": {
     "test": " "
@@ -18,7 +18,7 @@
     "library",
     "step-by-step"
   ],
-  "author": "Fortes Informática",
+  "author": "Soonshiny",
   "license": "Apache 2",
   "devDependencies": {
     "gulp": "^3.8.7",
