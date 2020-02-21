@@ -1,4 +1,4 @@
-var PlaylistName = "";
+var playlistName = "";
 var menuPlaylist = "";
 var amount = "";
 Sideshow.registerWizard({
@@ -57,12 +57,11 @@ Sideshow.registerWizard({
                 }
             ],
             listeners: {
-                beforeStep: function() {
-                },
+                beforeStep: function() {},
                 afterStep: function() {
-                    PlaylistName = $(".PlaylistMeta-name").html();
-                    menuPlaylist = $('.PlaylistMenuRow').has('.PlaylistMenuRow-title:contains("'+PlaylistName+'")')[0]
-					amount = $('.PlaylistMenuRow').has('.PlaylistMenuRow-title:contains("'+PlaylistName+'")').find('.PlaylistMenuRow-count').html();
+                    playlistName = $(".PlaylistMeta-name").html();
+                    menuPlaylist = $('.PlaylistMenuRow').has('.PlaylistMenuRow-title:contains("' + playlistName + '")')[0]
+                    amount = $('.PlaylistMenuRow').has('.PlaylistMenuRow-title:contains("' + playlistName + '")').find('.PlaylistMenuRow-count').html();
                 },
             },
             subject: ".Dialog",
@@ -88,22 +87,21 @@ Sideshow.registerWizard({
             targets: ".SearchBar",
             format: "markdown"
         }, {
-            title: "Adding a song to your "+PlaylistName+ " Playlist",
-            text: "**Drag and drop** your chosen song into your "+ PlaylistName +" Playlist (located in the left-hand bar). All of your available Playlists will be displayed here.",
+            title: "Adding a song to your " + playlistName + " Playlist",
+            text: "**Drag and drop** your chosen song into your " + playlistName + " Playlist (located in the left-hand bar). All of your available Playlists will be displayed here.",
             listeners: {
-                beforeStep: function() {
-                },
+                beforeStep: function() {},
                 afterStep: function() {
-                    $('.PlaylistMenuRow-title:contains("'+PlaylistName+'")')[0].click();
+                    $('.PlaylistMenuRow-title:contains("' + playlistName + '")')[0].click();
                 },
             },
             completingConditions: [
                 function() {
-                    return $('.PlaylistMenuRow').has('.PlaylistMenuRow-title:contains("'+PlaylistName+'")').find('.PlaylistMenuRow-count').html() > amount;
+                    return $('.PlaylistMenuRow').has('.PlaylistMenuRow-title:contains("' + playlistName + '")').find('.PlaylistMenuRow-count').html() > amount;
                 }
             ],
             subject: ".PlaylistManager",
-			targets: ".PlaylistManager",
+            targets: ".PlaylistManager",
             format: "markdown"
         }, {
             title: "Activate your Playlist",
