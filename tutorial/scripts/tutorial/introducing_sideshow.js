@@ -1,12 +1,10 @@
-//A Sideshow Tutorial Example
-//This tutorial introduces the Sideshow basics to the newcomer
 var PlaylistName = "";
 var menuPlaylist = "";
 var amount = "";
 Sideshow.registerWizard({
     name: "Introduction",
     title: "Introducing WLK",
-    description: "Introducing the main features of welovekpop.club",
+    description: "Introducing the main features of wlk.yt",
     estimatedTime: "5 Minutes",
     affects: [
         function() {
@@ -19,8 +17,8 @@ Sideshow.registerWizard({
 }).storyLine({
     showStepPosition: true,
     steps: [{
-            title: "What is WE ❤ KPOP?",
-            text: "WE ❤ KPOP (WLK) is a **multi-platform community** dedicated to sharing the best South Korean music. Our main website, üWave, allows you to contribute to a **collaborative listening experience** by sharing your favourite songs. This tutorial will introduce you to the main aspects of the site: the live Chat and the creation of Playlists.",
+            title: "What is WLK?",
+            text: "WLK is a **multi-platform community** dedicated to sharing the best South Korean music. Our main website, üWave, allows you to contribute to a **collaborative listening experience** by sharing your favourite songs. This tutorial will introduce you to the main aspects of the site: the live Chat and the creation of Playlists.",
             format: "markdown"
         }, {
             title: "The Chat",
@@ -63,9 +61,8 @@ Sideshow.registerWizard({
                 },
                 afterStep: function() {
                     PlaylistName = $(".PlaylistMeta-name").html();
-                    menuPlaylist = $('.PlaylistMenu-row').has('.PlaylistMenuRow-title:contains("'+PlaylistName+'")')[0];
-					amount = $('.PlaylistMenu-row').has('.PlaylistMenuRow-title:contains("'+PlaylistName+'")')[0].lastChild.lastChild.innerHTML;
-
+                    menuPlaylist = $('.PlaylistMenuRow').has('.PlaylistMenuRow-title:contains("'+PlaylistName+'")')[0]
+					amount = $('.PlaylistMenuRow').has('.PlaylistMenuRow-title:contains("'+PlaylistName+'")').find('.PlaylistMenuRow-count').html();
                 },
             },
             subject: ".Dialog",
@@ -102,26 +99,26 @@ Sideshow.registerWizard({
             },
             completingConditions: [
                 function() {
-                    return menuPlaylist.lastChild.lastChild.innerHTML > amount;
+                    return $('.PlaylistMenuRow').has('.PlaylistMenuRow-title:contains("'+PlaylistName+'")').find('.PlaylistMenuRow-count').html() > amount;
                 }
             ],
             subject: ".PlaylistManager",
-			targets: menuPlaylist,
+			targets: ".PlaylistManager",
             format: "markdown"
         }, {
             title: "Activate your Playlist",
             text: "Click this checkbox to activate your Playlist. This will ensure that songs from the correct Playlist have been selected when it is your turn to play.",
             completingConditions: [
                 function() {
-                    return $(".PlaylistMeta-active").find('input[type="checkbox"]').is(':checked');
+                    return $("#playlist-meta-active").is(':checked');
                 }
             ],
             subject: ".PlaylistManager",
-            targets: ".PlaylistMeta-active",
+            targets: ".PlaylistManager",
             format: "markdown"
         }, {
             title: "You're ready!",
-            text: "Awesome! You've now created a Playlist and have added your first song. If you're ready, you can **join the Waitlist** to play it live for everyone to hear. All available tutorials can be found in the Settings at the bottom left of the Playlist Manager. Additionally, if you have any questions, please ask a Moderator, Manager or Admin in the Chat.",
+            text: "Awesome! You've now created a Playlist and have added your first song. If you're ready, you can **join the Waitlist** to play it live for everyone to hear. If you have any questions, please ask a Moderator, Manager or Admin in the Chat.",
             subject: ".FooterBar-join",
             targets: ".FooterBar-join",
             format: "markdown"
